@@ -1,4 +1,4 @@
-for oldfile in *.txt;
+for oldfile in *.none;
 do
-cp "$oldfile" "`basename "$oldfile" .txt`".php;
+cp "$oldfile" "`basename "$oldfile" .none`".php;
 done
