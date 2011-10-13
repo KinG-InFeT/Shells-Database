@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 /*
  * iMHaPFTP.php - iMHaBiRLiGi Php Ftp Editoru
  * Copyright (C) 2003-2005  iMHaBiRLiGi <iMHaBiRLiGi@imhabirligi.com>
@@ -59,7 +60,7 @@
  * 'se' - Swedish
  * 'auto' - autoselect
  */
-$lang = 'auto';
+$lang = 'it';
 
 /* Charset of your filenames:
  */

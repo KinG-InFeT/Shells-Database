@@ -1,8 +1,8 @@
 <?php
 //Edited By KinG-InFeT
 error_reporting(0);
-//password: admin
 
+//password: admin
 $password = "21232f297a57a5a743894a0e4a801fc3"; // You can put a md5 string here too, for plaintext passwords: max 31 chars.
 
 

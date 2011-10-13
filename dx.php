@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 /*
   DDDDD        SSSSS    DxShell    by î_Î Tync
    D  D  X X   S
@@ -22,7 +22,6 @@ $DX_Header_drawn=false;
 @ini_set('max_execution_time',0);
 @set_time_limit(0);
 @ini_set('output_buffering',0);
-@error_reporting(E_ALL);
 
 $GLOB['URL']['+Get']=$_SERVER['PHP_SELF'].'?'; /* this filename + $_GET string */
 	if (!empty($_GET))

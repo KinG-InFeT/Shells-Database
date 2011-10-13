@@ -54,9 +54,9 @@ function really(d,f,m,t) {
 }
 </SCRIPT></head><body><center>
 <hr width="775" noshade><table width="775" border="0" cellpadding="0">
-<?PHP
+<?php
 
-error_reporting(7);
+error_reporting(0);
 ob_start();
 $mtime = explode(' ', microtime());
 $starttime = $mtime[1] + $mtime[0];
